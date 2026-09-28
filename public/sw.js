@@ -1,4 +1,4 @@
-const CACHE = 'lila-app-shell-v1';
+const CACHE = 'kero-app-shell-v2';
 
 self.addEventListener('install', event => {
   self.skipWaiting();
