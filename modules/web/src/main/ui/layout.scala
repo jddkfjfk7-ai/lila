@@ -87,7 +87,12 @@ final class layout(helpers: Helpers, assetHelper: lila.web.ui.AssetFullHelper)(
     style := "display:inline;width:34px;height:34px;vertical-align:top;margin-right:5px;vertical-align:text-top"
   )
 
-  val manifests = raw("""<link rel="manifest" href="/manifest.json">""")
+  val manifests = raw(
+    """<link rel="manifest" href="/manifest.json">""" +
+      """<meta name="mobile-web-app-capable" content="yes">""" +
+      """<meta name="apple-mobile-web-app-capable" content="yes">""" +
+      """<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">"""
+  )
   val noRobots = raw("""<meta content="noindex,nofollow" name="robots">""")
 
   val favicons = raw:
