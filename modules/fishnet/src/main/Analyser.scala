@@ -43,6 +43,8 @@ final class Analyser(
       .flatMap:
         if _ then fuccess(Analyser.Result.AlreadyAnalysed)
         else if !gameApi.analysable(game) then fuccess(Analyser.Result.NotAnalysable)
+        else if game.finished.not && game.userIds.contains(sender.userId) && !sender.mod && !sender.system then
+          fuccess(Analyser.Result.LiveGame)
         else
           val origin = originOpt.getOrElse:
             if sender.system then Origin.autoHunter else Origin.manualRequest
@@ -185,3 +187,4 @@ object Analyser:
     case WeeklyLimit extends Result("You have reached the weekly analysis limit".some)
     case DailyLimit extends Result("You have reached the daily analysis limit".some)
     case DailyIpLimit extends Result("You have reached the daily analysis limit on this IP".some)
+    case LiveGame extends Result("Analysis is unavailable while you are playing this game".some)

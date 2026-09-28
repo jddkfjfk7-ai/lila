@@ -12,15 +12,15 @@ export interface Hook {
   id: string;
   sri: string;
   clock: string;
-  t: number; // time
-  s: number; // speed
-  i: number; // increment
+  t: number;
+  s: number;
+  i: number;
   variant: VariantKey;
   perf: Exclude<Perf, 'fromPosition'>;
-  prov?: true; // is rating provisional
-  u?: string; // username
+  prov?: true;
+  u?: string;
   rating?: number;
-  ra?: 1; // rated
+  ra?: 1;
   action: 'cancel' | 'join';
   disabled?: boolean;
 }
@@ -130,4 +130,5 @@ export interface ForceSetupOptions {
   days?: number;
   mode?: GameMode;
   color?: ColorChoice;
+  aiLevel?: number;
 }

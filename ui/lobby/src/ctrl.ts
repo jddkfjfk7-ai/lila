@@ -83,8 +83,11 @@ export default class LobbyController {
       const urlParams = new URLSearchParams(location.search);
       const friendUser = urlParams.get('user') ?? undefined;
       const variant = urlParams.get('variant');
+      const aiLevel = Number(urlParams.get('level'));
 
       if (variant) forceOptions.variant = variant as VariantKey;
+      if (locationHash === 'ai' && Number.isInteger(aiLevel) && aiLevel >= 1 && aiLevel <= 8)
+        forceOptions.aiLevel = aiLevel;
 
       if (locationHash !== 'hook' && urlParams.get('fen')) {
         forceOptions.fen = urlParams.get('fen')!;

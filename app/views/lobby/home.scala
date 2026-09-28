@@ -27,7 +27,7 @@ object home:
         )
       )
     Page("")
-      .copy(fullTitle = s"$siteName • ${trans.site.freeOnlineChess.txt()}".some)
+      .copy(fullTitle = "Kero Chess • Play, train, watch and improve".some)
       .i18n(_.variant)
       .js(
         PageModule(
@@ -45,10 +45,10 @@ object home:
       .css("lobby")
       .graph(
         OpenGraph(
-          image = staticAssetUrl("logo/lichess-tile-wide.png").some,
-          title = "The best free, adless Chess server",
+          image = s"$netBaseUrl/brand/kero-mark.svg".some,
+          title = "Kero Chess",
           url = netBaseUrl.into(Url),
-          description = trans.site.siteDescription.txt()
+          description = "Play chess, train with purpose, analyze deeply and compete with players around the world."
         )
       )
       .hrefLangs(lila.ui.LangPath("/")):
@@ -56,6 +56,7 @@ object home:
         main(
           cls := List(
             "lobby" -> true,
+            "lobby--platform" -> true,
             "lobby-nope" -> (playban.isDefined || currentGame.isDefined || homepage.hasUnreadLichessMessage)
           )
         )(
@@ -97,11 +98,11 @@ object home:
               div(cls := "about-side")(
                 ctx.blind.option(h2(trans.site.about())),
                 trans.site.xIsAFreeYLibreOpenSourceChessServer(
-                  "Lichess",
+                  "Kero Chess",
                   a(cls := "blue", href := routes.Plan.features)(trans.site.really.txt())
                 ),
                 " ",
-                a(href := "/about")(trans.site.aboutX("Lichess"), "...")
+                a(href := "/about")(trans.site.aboutX("Kero Chess"), "...")
               )
           ),
           currentGame
@@ -126,6 +127,57 @@ object home:
               )
             )
           ),
+          div(cls := "lobby__bots")(
+            div(cls := "lobby__bots__header")(
+              div(
+                h2("Play Kero Bots"),
+                span("Real AI games • casual • choose your engine level")
+              ),
+              a(href := "/?level=1#ai")("Open setup")
+            ),
+            div(cls := "lobby__bots__grid")(
+              List(
+                (1, "Warm-up", "Learn the basics"),
+                (2, "Beginner", "Build confidence"),
+                (3, "Developing", "Practice clean play"),
+                (4, "Club", "Challenge your habits"),
+                (5, "Advanced", "Test your calculation"),
+                (6, "Expert", "Demand accuracy"),
+                (7, "Master", "Serious resistance"),
+                (8, "Elite", "Highest built-in level")
+              ).map { case (level, name, description) =>
+                a(cls := "lobby__bot", href := s"/?level=$level#ai")(
+                  span(cls := "lobby__bot__level")(s"AI $level"),
+                  strong(name),
+                  span(cls := "lobby__bot__description")(description),
+                  span(cls := "lobby__bot__meta")("Unrated game")
+                )
+              }
+            )
+          ),
+          div(cls := "lobby__platform")(
+            div(cls := "lobby__platform__header")(
+              div(
+                h2("Kero Chess"),
+                span("One connected chess platform for play, improvement, competition and community.")
+              ),
+              a(cls := "lobby__platform__all", href := "/faq")("Explore the platform")
+            ),
+            nav(cls := "lobby__platform__nav", aria.label := "Kero Chess platform")(
+              a(href := "/")(strong("Play"), span("Rated, casual & custom games")),
+              a(href := "/training")(strong("Train"), span("Puzzles & daily practice")),
+              a(href := "/tutor")(strong("Coach"), span("Personal game insights")),
+              a(href := "/analysis")(strong("Analyze"), span("Deep positions & variations")),
+              a(href := "/opening")(strong("Openings"), span("Explore opening trees")),
+              a(href := "/study")(strong("Studies"), span("Build & share repertoires")),
+              a(href := "/tournament")(strong("Arena"), span("Live tournaments")),
+              a(href := "/swiss")(strong("Swiss"), span("Competitive pairings")),
+              a(href := "/simul")(strong("Simuls"), span("Play many boards")),
+              a(href := "/storm")(strong("Storm"), span("Fast tactical training")),
+              a(href := "/racer")(strong("Racer"), span("Race your tactics")),
+              a(href := "/player")(strong("Community"), span("Players, teams & friends"))
+            )
+          ),
           div(cls := "lobby__support")(donateLink, swagLink),
           div(cls := "lobby__tv")(
             donateLink,
@@ -142,7 +194,7 @@ object home:
           ctx.noBot.option(bits.underboards(tours, simuls)),
           div(cls := "lobby__about")(
             ctx.blind.option(h2(trans.site.about())),
-            a(href := "/about")(trans.site.aboutX("Lichess")),
+            a(href := "/about")(trans.site.aboutX("Kero Chess")),
             a(href := "/faq")(trans.faq.faqAbbreviation()),
             a(href := "/contact")(trans.contact.contact()),
             a(href := "/app")(trans.site.mobileApp()),

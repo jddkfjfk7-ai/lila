@@ -276,4 +276,4 @@ object RemoteSocket:
       def respond(reqId: Int, payload: JsObject) = s"req/response $reqId ${Json.stringify(payload)}"
       def stop(reqId: Int) = s"lila/stop $reqId"
 
-  val initialUserIds = Set(UserId("lichess"))
+  val initialUserIds = Set.empty[UserId]

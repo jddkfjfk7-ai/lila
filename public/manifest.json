@@ -1,0 +1,19 @@
+{
+  "name": "Kero Chess",
+  "short_name": "Kero",
+  "description": "A fast, modern chess platform for play, training, analysis and competition.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0b1020",
+  "theme_color": "#151a2e",
+  "icons": [
+    {
+      "src": "/brand/kero-mark.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

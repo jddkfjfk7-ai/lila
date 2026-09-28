@@ -29,6 +29,13 @@ site.redirect = redirect;
 site.reload = reload;
 site.announce = announceDisplay;
 site.sound = sound;
+
+if ('serviceWorker' in navigator && window.isSecureContext) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js', { scope: '/' }).catch(() => {});
+  });
+}
+
 (window as any).lichess = api;
 loadPolyfills();
 fixBrowserStyle();

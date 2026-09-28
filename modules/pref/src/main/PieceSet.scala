@@ -26,7 +26,8 @@ sealed trait PieceSetObject:
 object PieceSet extends PieceSetObject:
 
   val all = List(
-    PieceSet("cburnett", Featured.Yes),
+    PieceSet("kero", Featured.Yes),
+    PieceSet("cburnett"),
     PieceSet("merida", Featured.Yes),
     PieceSet("alpha", Featured.Yes),
     PieceSet("pirouetti"),

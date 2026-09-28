@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Kero Chess</title>
+  <desc id="desc">Kero Chess brand mark</desc>
+  <rect width="512" height="512" rx="128" fill="#0b1020"/>
+  <path d="M132 110h72v118l106-118h88L278 255l126 147h-94L204 286v116h-72z" fill="#fff"/>
+  <path d="M315 110h33l32 70h-33z" fill="#6d5ef7"/>
+</svg>

@@ -146,7 +146,7 @@ case class Pref(
 
 object Pref:
 
-  val defaultBgImgUrl = "//lichess1.org/assets/images/background/landscape.jpg"
+  val defaultBgImgUrl = "/brand/kero-background.svg"
   val defaultBgOpacity = 50
 
   case class BoardPref(

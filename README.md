@@ -1,89 +1,53 @@
-# [lichess.org](https://lichess.org)
+# Kero Chess
 
-[![Crowdin](https://d322cqt584bo4o.cloudfront.net/lichess/localized.svg)](https://crowdin.com/project/lichess)
-[![Mastodon](https://img.shields.io/mastodon/follow/109298525492334687?domain=mastodon.online)](https://mastodon.online/@lichess)
-[![Bluesky](https://img.shields.io/badge/Bluesky-0285FF?logo=bluesky&logoColor=fff)](https://bsky.app/profile/lichess.org)
-[![Discord](https://img.shields.io/discord/280713822073913354?label=Discord&logo=discord&style=flat)](https://discord.gg/lichess)
-[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/lichess-org/lila)
+Kero Chess is an independent chess platform built from the open-source Lila chess server.
 
-<img src="https://raw.githubusercontent.com/lichess-org/lila/master/public/images/home-bicolor.png" alt="Lichess homepage" title="Lichess comes with light and dark theme, this screenshot shows both." />
+## Product identity
 
-Lila (li[chess in sca]la) is a free online chess game server focused on [realtime](https://lichess.org/games) gameplay and ease of use.
+- Brand: **Kero Chess**
+- Original Kero logo and visual identity live under `public/brand/`.
+- Original Kero 2D chess pieces live under `public/piece/kero/`.
+- Kero is the default 2D piece set and Kero is the default board theme.
 
-It features a [search engine](https://lichess.org/games/search),
-[computer analysis](https://lichess.org/ief49lif) distributed with [fishnet](https://github.com/lichess-org/fishnet),
-[tournaments](https://lichess.org/tournament),
-[simuls](https://lichess.org/simul),
-[forums](https://lichess.org/forum),
-[teams](https://lichess.org/team),
-[tactic trainer](https://lichess.org/training),
-a [mobile app](https://lichess.org/app),
-and a [shared analysis board](https://lichess.org/study).
-The UI is available in more than [140 languages](https://crowdin.com/project/lichess) thanks to the community.
+## Upstream and licensing
 
-Lichess is written in [Scala 3](https://www.scala-lang.org/),
-and relies on a modified [Play 2.8](https://www.playframework.com/) framework.
-[scalatags](https://com-lihaoyi.github.io/scalatags/) is used for templating.
-Pure chess logic is contained in the [scalachess](https://github.com/lichess-org/scalachess) submodule.
-The server is fully asynchronous, making heavy use of Scala Futures and [Pekko streams](https://pekko.apache.org).
-WebSocket connections are handled by a [separate server](https://github.com/lichess-org/lila-ws) that communicates using [redis](https://redis.io/).
-Lichess talks to [Stockfish](https://stockfishchess.org/) deployed in an [AI cluster](https://github.com/lichess-org/fishnet) of donated servers.
-It uses [MongoDB](https://www.mongodb.com) to store more than 12 billion games, which are indexed by [elasticsearch](https://github.com/elastic/elasticsearch).
-HTTP requests and WebSocket connections can be proxied by [nginx](https://nginx.org).
-The web client is written in [TypeScript](https://www.typescriptlang.org/) and [snabbdom](https://github.com/snabbdom/snabbdom), using [Sass](https://sass-lang.com/) to generate CSS.
-All rated games are published in a [free PGN database](https://database.lichess.org).
-Browser testing done with [Browserstack](https://www.browserstack.com).
-Proxy detection done with [IP2Proxy database](https://www.ip2location.com/database/ip2proxy).
-Software builds and CI/CD done with [Depot](https://depot.dev/).
-Please help us [translate Lichess with Crowdin](https://crowdin.com/project/lichess).
+Kero Chess contains modified Lila code. The upstream Lila code is licensed under the GNU Affero General Public License v3 or later. Upstream copyright and license notices remain part of the project where applicable.
 
-See [lichess.org/source](https://lichess.org/source) for a list of repositories.
+Kero-authored original product assets and modifications are identified in [KERO-COPYRIGHT.md](KERO-COPYRIGHT.md). Third-party assets retain their own licenses; see [COPYING.md](COPYING.md) before redistribution or commercial packaging.
 
-[Join us on Discord](https://discord.gg/lichess) for more info.
-Use [GitHub issues](https://github.com/lichess-org/lila/issues) for bug reports and feature requests.
+This project must not present Lichess trademarks, logos, restricted artwork, or upstream branding as Kero Chess-owned material.
 
-## Installation
+## Platform
 
-```
-./lila.sh # thin wrapper around sbt
-run
+Kero keeps the mature realtime chess/game infrastructure while adding an independent product layer for:
+
+- Online rated, casual and custom games
+- Chess variants, tournaments, Swiss events and simuls
+- Puzzles, training, studies and opening exploration
+- Analysis and game insights
+- AI games with built-in engine levels
+- Community, teams, players and social features
+- Responsive web app / PWA foundations
+- RTL/LTR and multilingual UI foundations
+- Production security, fair-play and operational hardening
+
+## Development
+
+The server uses Scala 3, Play/Pekko, MongoDB, Redis, TypeScript and Sass. See [KERO_DEPLOYMENT.md](docs/KERO_DEPLOYMENT.md) for production topology and deployment requirements.
+
+Run the project with the normal Lila development workflow:
+
+```bash
+./lila.sh
 ```
 
-The Wiki describes [how to setup a development environment](https://github.com/lichess-org/lila/wiki/Lichess-Development-Onboarding).
+## Production
 
-## HTTP API
+Do not treat a source checkout as a production build. Production deployment requires a successful build/test/stage pipeline plus staging verification of database, realtime sockets, Fishnet/Stockfish workers, HTTPS/WSS, backups, email and monitoring.
 
-Feel free to use the [Lichess API](https://lichess.org/api) in your applications and websites.
+See:
 
-## Supported browsers
-
-| Name              | Version | Notes                      |
-| ----------------- | ------- | -------------------------- |
-| Firefox           | 115+    | Full support (recommended) |
-| Chromium / Chrome | 112+    | Full support               |
-| Edge              | 111+    | Full support               |
-| Opera             | 97+     | Reasonable support         |
-| Safari            | 16.2+   | Reasonable support         |
-
-Older browsers will not work.
-For your own sake, please upgrade. Security and performance, think about it!
-
-## License
-
-Lila is licensed under the GNU Affero General Public License 3 or any later
-version at your choice. See [copying](https://github.com/lichess-org/lila/blob/master/COPYING.md) for
-details.
-
-## Production architecture (as of July 2022)
-
-![Lichess production server architecture diagram](https://raw.githubusercontent.com/lichess-org/lila/master/public/images/architecture.png)
-
-## Credits
-
-See [lichess.org/thanks](https://lichess.org/thanks) and the contributors here:
-
-[![GitHub contributors](https://contrib.rocks/image?repo=lichess-org/lila)](https://github.com/lichess-org/lila/graphs/contributors)
-
-## Competence development program
-
-Lichess would like to support its contributors in their competence development by covering costs of relevant training materials and activities. This is a small way to further empower contributors who have given their time to Lichess and to enable or improve additional contributions to Lichess in the future. For more information, including how to apply, check [Competence Development for Lichess contributors](https://lichess.org/page/competence-development).
+- [Kero production deployment](docs/KERO_DEPLOYMENT.md)
+- [Kero production runbook](docs/KERO_PRODUCTION_RUNBOOK.md)
+- [Kero release status](docs/KERO_RELEASE_STATUS.md)
+- [Global benchmark](docs/KERO_GLOBAL_BENCHMARK.md)
