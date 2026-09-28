@@ -61,7 +61,7 @@ object page:
           metaCsp(p.csp.map(_(defaultCsp))),
           metaThemeColor,
           st.headTitle:
-            val prodTitle = p.fullTitle | s"${p.title} • $siteName"
+            val prodTitle = p.fullTitle | s"${p.title} • Kero Chess"
             if env.mode.isProd then prodTitle
             else s"${ctx.me.so(_.username.value + " ")} $prodTitle"
           ,
@@ -76,7 +76,7 @@ object page:
             content := p.openGraph.fold(trans.site.siteDescription.txt())(o => o.description),
             name := "description"
           ),
-          link(rel := "mask-icon", href := staticAssetUrl("logo/lichess.svg"), attr("color") := "black"),
+          link(rel := "mask-icon", href := "/brand/kero-mark.svg", attr("color") := "#6d5ef7"),
           favicons,
           (p.flags(PageFlags.noRobots) || !netConfig.crawlable).option(noRobots),
           noTranslate,
