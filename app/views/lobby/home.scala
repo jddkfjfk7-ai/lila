@@ -127,6 +127,20 @@ object home:
               )
             )
           ),
+          div(cls := "lobby__platform")(
+            div(cls := "lobby__platform__header")(
+              h2("Chess, your way"),
+              span("Play, train, watch and improve from one place.")
+            ),
+            nav(cls := "lobby__platform__nav", aria.label := "Chess platform")(
+              a(href := "/")(strong("Play"), span("Games & challenges")),
+              a(href := "/training")(strong("Training"), span("Puzzles & practice")),
+              a(href := "/analysis")(strong("Analysis"), span("Study positions")),
+              a(href := "/tournament")(strong("Tournaments"), span("Arena & events")),
+              a(href := "/tv")(strong("Watch"), span("Live chess")),
+              a(href := "/player")(strong("Community"), span("Players & teams"))
+            )
+          ),
           div(cls := "lobby__support")(donateLink, swagLink),
           div(cls := "lobby__tv")(
             donateLink,
