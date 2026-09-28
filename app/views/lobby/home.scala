@@ -129,16 +129,25 @@ object home:
           ),
           div(cls := "lobby__platform")(
             div(cls := "lobby__platform__header")(
-              h2("Kero Chess"),
-              span("Play, train, watch and improve from one place.")
+              div(
+                h2("Kero Chess"),
+                span("One connected chess platform for play, improvement, competition and community.")
+              ),
+              a(cls := "lobby__platform__all", href := "/faq")("Explore the platform")
             ),
             nav(cls := "lobby__platform__nav", aria.label := "Kero Chess platform")(
-              a(href := "/")(strong("Play"), span("Games & challenges")),
-              a(href := "/training")(strong("Training"), span("Puzzles & practice")),
-              a(href := "/analysis")(strong("Analysis"), span("Study positions")),
-              a(href := "/tournament")(strong("Tournaments"), span("Arena & events")),
-              a(href := "/tv")(strong("Watch"), span("Live chess")),
-              a(href := "/player")(strong("Community"), span("Players & teams"))
+              a(href := "/")(strong("Play"), span("Rated, casual & custom games")),
+              a(href := "/training")(strong("Train"), span("Puzzles & daily practice")),
+              a(href := "/tutor")(strong("Coach"), span("Personal game insights")),
+              a(href := "/analysis")(strong("Analyze"), span("Deep positions & variations")),
+              a(href := "/opening")(strong("Openings"), span("Explore opening trees")),
+              a(href := "/study")(strong("Studies"), span("Build & share repertoires")),
+              a(href := "/tournament")(strong("Arena"), span("Live tournaments")),
+              a(href := "/swiss")(strong("Swiss"), span("Competitive pairings")),
+              a(href := "/simul")(strong("Simuls"), span("Play many boards")),
+              a(href := "/storm")(strong("Storm"), span("Fast tactical training")),
+              a(href := "/racer")(strong("Racer"), span("Race your tactics")),
+              a(href := "/player")(strong("Community"), span("Players, teams & friends"))
             )
           ),
           div(cls := "lobby__support")(donateLink, swagLink),
