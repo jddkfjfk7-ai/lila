@@ -46,4 +46,10 @@ No anti-cheat system can guarantee perfect detection. Do not ban from a single h
 - Account/session invalidation.
 - Fishnet worker failure and recovery.
 
+## Release gate
+
+Public launch requires all of the following to be verified in staging: server compilation and tests, asset compilation, formatting/linting, realtime connectivity, authentication/session flows, rate limiting, backups and restore, monitoring/alerts, email delivery, push delivery where enabled, moderation flows, anti-cheat staging scenarios, HTTPS/WSS, and rollback procedures.
+
+The PWA layer is an installable web app; it is not a substitute for separately packaged native Android/iOS applications.
+
 Only open public registration after the server build, asset build, tests, security checks, realtime stack and external services pass staging.
