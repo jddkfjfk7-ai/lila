@@ -22,6 +22,12 @@ No anti-cheat system can guarantee perfect detection. Do not ban from a single h
 - IP/proxy intelligence when enabled
 - Kaladin service and queue integration when behavioral ML detection is enabled
 
+## Required environment
+
+Use `docs/KERO_PRODUCTION_ENV.example` as the variable contract. Store real values in a secret manager, not Git. The production profile intentionally fails to start when required secrets or private service endpoints are missing.
+
+Required groups: domain/asset URLs, Play session secret, password hashing and account-token secrets, MongoDB URI, Redis URI, and SMTP credentials.
+
 ## Required security settings
 
 - Keep `net.ratelimit = true`.
