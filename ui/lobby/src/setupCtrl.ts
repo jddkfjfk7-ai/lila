@@ -86,7 +86,7 @@ export default class SetupController {
     this.gameMode = this.propWithApply(forceOptions?.mode ?? storeProps.gameMode);
     this.ratingMin = this.propWithApply(storeProps.ratingMin);
     this.ratingMax = this.propWithApply(storeProps.ratingMax);
-    this.aiLevel = this.propWithApply(storeProps.aiLevel);
+    this.aiLevel = this.propWithApply(forceOptions?.aiLevel ?? storeProps.aiLevel);
     this.color(forceOptions?.color || storeProps.color || 'random');
 
     this.enforcePropRules();
@@ -280,6 +280,7 @@ export default class SetupController {
         this.invalid(this.forced.days, this.timeControl.days())
       )
         return false;
+      if (this.gameType === 'ai' && this.invalid(this.forced.aiLevel, this.aiLevel())) return false;
       if (this.timeControl.mode() === 'realTime') {
         if (this.invalid(this.forced.time, this.timeControl.time())) return false;
         if (this.invalid(this.forced.increment, this.timeControl.increment())) return false;
