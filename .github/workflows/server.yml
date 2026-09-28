@@ -23,6 +23,8 @@ on:
       - 'modules/**'
       - 'project/**'
       - 'translation/source/**'
+      - 'public/**'
+      - 'ui/**'
       - 'build.sbt'
       - 'lila.sh'
       - 'conf/application.conf.default'
@@ -51,13 +53,13 @@ jobs:
       - run: TZ=UTC git log -1 --date=iso-strict-local --pretty='format:app.version.commit = "%H"%napp.version.date = "%ad"' | tee conf/version.conf
       - run: ./lila.sh -Depoll=true "test;stage"
       - run: cp LICENSE COPYING.md README.md target/universal/stage && git log -n 1 --pretty=oneline > target/universal/stage/commit.txt
-      - run: cd target/universal/stage && tar --zstd -cvpf ../../../lila-3.0.tar.zst . && cd -
+      - run: cd target/universal/stage && tar --zstd -cvpf ../../../kero-chess-3.0.tar.zst . && cd -
         env:
           ZSTD_LEVEL: 1 # most files are already zipped
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
-          name: lila-server
-          path: lila-3.0.tar.zst
+          name: kero-chess-server
+          path: kero-chess-3.0.tar.zst
           compression-level: 0 # already compressed
 
   format:
