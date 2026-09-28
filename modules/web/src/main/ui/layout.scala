@@ -17,9 +17,11 @@ final class layout(helpers: Helpers, assetHelper: lila.web.ui.AssetFullHelper)(
   import helpers.{ *, given }
   import assetHelper.{ defaultCsp, netConfig, cashTag, siteName }
 
+  private val platformBrand = "Kero Chess"
+
   val doctype = raw("<!DOCTYPE html>")
   def htmlTag(using lang: Lang) = html(st.lang := lang.code, dir := isRTL(lang).option("rtl"))
-  val topComment = raw("""<!-- Lichess is open source! See https://lichess.org/source -->""")
+  val topComment = raw("""<!-- Kero Chess is an independent product built from open-source Lila. See /source for source code. -->""")
   val charset = raw("""<meta charset="utf-8">""")
   val viewport = raw:
     """<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, viewport-fit=cover">"""
@@ -96,9 +98,8 @@ final class layout(helpers: Helpers, assetHelper: lila.web.ui.AssetFullHelper)(
   val noRobots = raw("""<meta content="noindex,nofollow" name="robots">""")
 
   val favicons = raw:
-    val path = s"$assetBaseUrl/assets/logo"
-    s"""<link rel="alternate icon" type="image/png" href="$path/lichess-favicon-64.png">""" +
-      s"""<link id="favicon" rel="icon" type="image/svg+xml" href="$path/lichess-favicon.svg">"""
+    """<link rel="icon" type="image/svg+xml" href="/brand/kero-mark.svg">""" +
+      """<link rel="alternate icon" type="image/svg+xml" href="/brand/kero-mark.svg">"""
 
   def blindModeForm(using ctx: Context) = raw:
     val btnText =
@@ -192,7 +193,7 @@ final class layout(helpers: Helpers, assetHelper: lila.web.ui.AssetFullHelper)(
 
   val dailyNewsAtom = link(
     href := routes.Feed.atom,
-    st.title := "Lichess Updates Feed",
+    st.title := "Kero Chess Updates Feed",
     tpe := "application/atom+xml",
     rel := "alternate"
   )
@@ -297,8 +298,7 @@ final class layout(helpers: Helpers, assetHelper: lila.web.ui.AssetFullHelper)(
         )
 
     private val siteNameFrag: Frag =
-      if siteName == "lichess.org" then frag("lichess", span(".org"))
-      else frag(siteName)
+      frag("Kero", span(" Chess"))
 
     def apply(
         zenable: Boolean,
@@ -314,7 +314,7 @@ final class layout(helpers: Helpers, assetHelper: lila.web.ui.AssetFullHelper)(
           a(cls := "site-title", href := langHref("/"), testId("site-title"))(
             if ctx.kid.yes then span(title := trans.site.kidMode.txt(), cls := "kiddo")(":)")
             else ctx.isBot.option(botImage),
-            div(cls := "site-icon", dataIcon := Icon.Logo),
+            div(cls := "site-icon")("K"),
             div(cls := "site-name")(siteNameFrag)
           ),
           (!isAppealUser).option(
