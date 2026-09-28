@@ -27,7 +27,7 @@ object home:
         )
       )
     Page("")
-      .copy(fullTitle = s"$siteName • ${trans.site.freeOnlineChess.txt()}".some)
+      .copy(fullTitle = "Kero Chess • Play, train, watch and improve".some)
       .i18n(_.variant)
       .js(
         PageModule(
@@ -45,10 +45,10 @@ object home:
       .css("lobby")
       .graph(
         OpenGraph(
-          image = staticAssetUrl("logo/lichess-tile-wide.png").some,
-          title = "The best free, adless Chess server",
+          image = "/brand/kero-mark.svg",
+          title = "Kero Chess",
           url = netBaseUrl.into(Url),
-          description = trans.site.siteDescription.txt()
+          description = "Play chess, train with purpose, analyze deeply and compete with players around the world."
         )
       )
       .hrefLangs(lila.ui.LangPath("/")):
@@ -98,11 +98,11 @@ object home:
               div(cls := "about-side")(
                 ctx.blind.option(h2(trans.site.about())),
                 trans.site.xIsAFreeYLibreOpenSourceChessServer(
-                  "Lichess",
+                  "Kero Chess",
                   a(cls := "blue", href := routes.Plan.features)(trans.site.really.txt())
                 ),
                 " ",
-                a(href := "/about")(trans.site.aboutX("Lichess"), "...")
+                a(href := "/about")(trans.site.aboutX("Kero Chess"), "...")
               )
           ),
           currentGame
@@ -129,10 +129,10 @@ object home:
           ),
           div(cls := "lobby__platform")(
             div(cls := "lobby__platform__header")(
-              h2("Chess, your way"),
+              h2("Kero Chess"),
               span("Play, train, watch and improve from one place.")
             ),
-            nav(cls := "lobby__platform__nav", aria.label := "Chess platform")(
+            nav(cls := "lobby__platform__nav", aria.label := "Kero Chess platform")(
               a(href := "/")(strong("Play"), span("Games & challenges")),
               a(href := "/training")(strong("Training"), span("Puzzles & practice")),
               a(href := "/analysis")(strong("Analysis"), span("Study positions")),
@@ -157,7 +157,7 @@ object home:
           ctx.noBot.option(bits.underboards(tours, simuls)),
           div(cls := "lobby__about")(
             ctx.blind.option(h2(trans.site.about())),
-            a(href := "/about")(trans.site.aboutX("Lichess")),
+            a(href := "/about")(trans.site.aboutX("Kero Chess")),
             a(href := "/faq")(trans.faq.faqAbbreviation()),
             a(href := "/contact")(trans.contact.contact()),
             a(href := "/app")(trans.site.mobileApp()),
