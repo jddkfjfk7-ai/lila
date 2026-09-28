@@ -45,7 +45,7 @@ object home:
       .css("lobby")
       .graph(
         OpenGraph(
-          image = "/brand/kero-mark.svg",
+          image = s"$netBaseUrl/brand/kero-mark.svg".some,
           title = "Kero Chess",
           url = netBaseUrl.into(Url),
           description = "Play chess, train with purpose, analyze deeply and compete with players around the world."
