@@ -127,6 +127,34 @@ object home:
               )
             )
           ),
+          div(cls := "lobby__bots")(
+            div(cls := "lobby__bots__header")(
+              div(
+                h2("Play Kero Bots"),
+                span("Real AI games • casual • choose your engine level")
+              ),
+              a(href := "/?level=1#ai")("Open setup")
+            ),
+            div(cls := "lobby__bots__grid")(
+              List(
+                (1, "Warm-up", "Learn the basics"),
+                (2, "Beginner", "Build confidence"),
+                (3, "Developing", "Practice clean play"),
+                (4, "Club", "Challenge your habits"),
+                (5, "Advanced", "Test your calculation"),
+                (6, "Expert", "Demand accuracy"),
+                (7, "Master", "Serious resistance"),
+                (8, "Elite", "Highest built-in level")
+              ).map { case (level, name, description) =>
+                a(cls := "lobby__bot", href := s"/?level=$level#ai")(
+                  span(cls := "lobby__bot__level")(s"AI $level"),
+                  strong(name),
+                  span(cls := "lobby__bot__description")(description),
+                  span(cls := "lobby__bot__meta")("Unrated game")
+                )
+              }
+            )
+          ),
           div(cls := "lobby__platform")(
             div(cls := "lobby__platform__header")(
               div(
