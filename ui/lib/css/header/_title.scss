@@ -30,11 +30,23 @@
 
   .site-name {
     display: none;
+    font-weight: 800;
+    letter-spacing: -0.03em;
   }
 
   .site-icon {
     display: none;
+    width: 1.08em;
+    height: 1.08em;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.34em;
+    background: #0b1020;
+    color: #fff;
     font-size: 24px;
+    font-weight: 900;
+    line-height: 1;
+    box-shadow: 0 3px 14px rgb(109 94 247 / 0.25);
 
     @media (height >= $tall) {
       font-size: 36px;
