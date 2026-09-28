@@ -56,6 +56,7 @@ object home:
         main(
           cls := List(
             "lobby" -> true,
+            "lobby--platform" -> true,
             "lobby-nope" -> (playban.isDefined || currentGame.isDefined || homepage.hasUnreadLichessMessage)
           )
         )(
