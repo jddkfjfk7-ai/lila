@@ -23,7 +23,7 @@ sealed trait ThemeObject:
 object Theme extends ThemeObject:
 
   val all = List(
-    Theme("brown", "brown.png", Featured.Yes), // 52/1 poll votes [for]/[against]
+    Theme("kero", "kero.svg", Featured.Yes),
     Theme("wood", "wood.jpg"), // 14/20
     Theme("wood2", "wood2.jpg"), // 7/26
     Theme("wood3", "wood3.jpg"), // 13/17
