@@ -1,0 +1,31 @@
+# Kero Chess production environment template
+# Copy to your secret manager. Never commit real values.
+
+KERO_DOMAIN=chess.example.com
+KERO_SITE_NAME=Kero Chess
+KERO_ASSET_DOMAIN=chess.example.com
+KERO_ASSET_BASE_URL=https://chess.example.com
+KERO_BASE_URL=https://chess.example.com
+
+KERO_PLAY_SECRET=replace-with-long-random-secret
+KERO_PASSWORD_HASH_SECRET=replace-with-long-random-secret
+KERO_PASSWORD_RESET_SECRET=replace-with-long-random-secret
+KERO_EMAIL_CONFIRM_SECRET=replace-with-long-random-secret
+KERO_EMAIL_CHANGE_SECRET=replace-with-long-random-secret
+KERO_LOGIN_TOKEN_SECRET=replace-with-long-random-secret
+KERO_TURNSTILE_COOKIE_SECRET=replace-with-long-random-secret
+
+KERO_MONGODB_URI=mongodb://user:password@mongo.internal:27017/kero?replicaSet=rs0
+KERO_REDIS_URI=redis://redis.internal:6379
+
+KERO_SMTP_HOST=smtp.example.com
+KERO_SMTP_USER=replace
+KERO_SMTP_PASSWORD=replace
+KERO_SMTP_SENDER=noreply@chess.example.com
+
+# Optional proxy intelligence. The current production profile is fail-closed/off
+# until the service is deployed and explicitly enabled in configuration.
+KERO_IP2PROXY_URL=
+
+# Kaladin is intentionally disabled until its service is deployed and tested.
+# Set kaladin.enabled=true in a deployment-specific override only after staging validation.
