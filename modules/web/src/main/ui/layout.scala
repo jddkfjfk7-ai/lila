@@ -195,7 +195,7 @@ final class layout(helpers: Helpers, assetHelper: lila.web.ui.AssetFullHelper)(
 
   val dailyNewsAtom = link(
     href := routes.Feed.atom,
-    st.title := "Kero Chess Updates Feed",
+    st.title := s"${platformBrand} Updates Feed",
     tpe := "application/atom+xml",
     rel := "alternate"
   )
