@@ -89,6 +89,93 @@ body {
   }
 }
 
+
+.lobby__platform {
+  display: grid;
+  gap: 1rem;
+  padding: clamp(1rem, 2vw, 1.5rem);
+  border: $border;
+  border-radius: var(--platform-radius, 14px);
+  background: $c-bg-box;
+  min-width: 0;
+
+  &__header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+
+    h2 {
+      margin: 0;
+      font-size: clamp(1.1rem, 1.7vw, 1.4rem);
+    }
+
+    span {
+      color: $c-font-dim;
+      font-size: 0.9em;
+    }
+  }
+
+  &__nav {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.65rem;
+
+    a {
+      display: grid;
+      gap: 0.15rem;
+      min-width: 0;
+      padding: 0.85rem 0.9rem;
+      border-radius: 10px;
+      background: $c-bg-zebra;
+      color: $c-font-page;
+      transition:
+        background-color 120ms ease,
+        transform 120ms ease;
+
+      strong {
+        font-size: 0.95em;
+      }
+
+      span {
+        color: $c-font-dim;
+        font-size: 0.78em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          background: $c-bg-zebra2;
+          color: $c-font-clear;
+          transform: translateY(-1px);
+        }
+      }
+
+      &:focus-visible {
+        outline: 2px solid $c-accent;
+        outline-offset: 2px;
+      }
+    }
+  }
+
+  @media (max-width: at-most($small)) {
+    padding: 0.85rem;
+
+    &__nav {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &__nav a {
+      transition: none;
+    }
+  }
+}
+
 .lobby__side {
   @extend %flex-column;
 
