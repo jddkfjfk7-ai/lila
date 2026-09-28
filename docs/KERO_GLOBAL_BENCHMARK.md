@@ -303,7 +303,7 @@ Already present in the current branch:
 - unified product navigation on the lobby
 
 Still requiring implementation/verification for a genuinely final product:
-- dedicated Kero bot directory and polished bot selection UX
+- ~~dedicated Kero bot directory and polished bot selection UX~~ — Kero Bot directory is now connected to the real `/setup/ai` flow with levels 1–8 and unrated game entry points
 - complete AI Coach explanation pipeline
 - Player DNA data model and UI
 - Smart Training generation/scheduling pipeline
