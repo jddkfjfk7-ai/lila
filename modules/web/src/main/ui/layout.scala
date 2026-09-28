@@ -15,7 +15,7 @@ final class layout(helpers: Helpers, assetHelper: lila.web.ui.AssetFullHelper)(
     reportScore: () => Int
 ):
   import helpers.{ *, given }
-  import assetHelper.{ defaultCsp, netConfig, cashTag, siteName }
+  import assetHelper.{ defaultCsp, netConfig, cashTag }
 
   private val platformBrand = "Kero Chess"
 
