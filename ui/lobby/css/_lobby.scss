@@ -22,6 +22,59 @@ body {
   ---main-max-width: 1400px;
 }
 
+.lobby--platform {
+  --platform-radius: 14px;
+  --platform-gap: clamp(0.65rem, 1vw, 1rem);
+
+  gap: var(--platform-gap);
+
+  > .lobby__side,
+  > .lobby__table,
+  > .lobby__tv,
+  > .lobby__puzzle,
+  > .lobby__blog,
+  > .lobby__feed,
+  > .lobby__tournaments-simuls,
+  > .lobby__about {
+    min-width: 0;
+  }
+
+  .lobby__start__button {
+    min-height: 3.4rem;
+    border-radius: var(--platform-radius);
+    padding-block: 0.65rem;
+    transition:
+      transform 120ms ease,
+      border-color 120ms ease,
+      background-color 120ms ease;
+
+    &:focus-visible {
+      outline: 2px solid $c-accent;
+      outline-offset: 3px;
+    }
+
+    @media (hover: hover) {
+      &:hover:not(.disabled) {
+        transform: translateY(-1px);
+      }
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .lobby__start__button {
+      transition: none;
+    }
+  }
+
+  @media (max-width: at-most($small)) {
+    --platform-radius: 11px;
+
+    .lobby__start {
+      gap: 0.6rem;
+    }
+  }
+}
+
 %lobby-side-more {
   @extend %roboto;
 
