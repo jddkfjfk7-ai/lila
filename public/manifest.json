@@ -1,0 +1,25 @@
+{
+  "name": "Lila Chess",
+  "short_name": "Lila",
+  "description": "A fast, open-source chess platform built on Lila.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#161512",
+  "theme_color": "#2e2a24",
+  "icons": [
+    {
+      "src": "/assets/logo/lichess-favicon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/logo/lichess-favicon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
