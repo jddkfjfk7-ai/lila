@@ -32,7 +32,7 @@ The upstream Lila source remains AGPL-3.0-or-later and retains its copyright/lic
 
 ## Verification boundary
 
-A source-level audit cannot substitute for a production build. Final release status requires the CI build/test/stage job to pass and staging verification for MongoDB, Redis, realtime sockets, Fishnet/Stockfish workers, HTTPS/WSS, email, backups, monitoring and load/soak testing.
+The CI workflow now watches server, UI and public asset changes on push as well as pull requests. A source-level audit cannot substitute for a production build. Final release status requires the CI build/test/stage job to pass and staging verification for MongoDB, Redis, realtime sockets, Fishnet/Stockfish workers, HTTPS/WSS, email, backups, monitoring and load/soak testing.
 
 ## Explicit non-claims
 
