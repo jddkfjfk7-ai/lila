@@ -12,6 +12,8 @@ on:
       - 'build.sbt'
       - 'lila.sh'
       - 'conf/application.conf.default'
+      - 'public/**'
+      - 'ui/**'
       - '.sbtopts.default'
     branches-ignore:
       - 'l10n_master'
